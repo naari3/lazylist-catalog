@@ -1,0 +1,48 @@
+.catalog:
+  name: lazylist
+  version: 0.0.1
+  # description: lazylist
+  uuid: lazylist-0.0.1
+  minimum_rancher_version: # The minimum version of Rancher that supports the template
+  questions: #Used to request user input for configuration options
+    - variable: TWITTER_CONSUMER_KEY
+      label: Twitter Consumer Key
+      required: true
+      default: xxxxx
+      type: password
+    - variable: TWITTER_CONSUMER_SECRET_KEY
+      label: Twitter Consumer Secret Key
+      required: true
+      default: xxxxx
+      type: password
+    - variable: MYSQL_ROOT_PASSWORD
+      label: MySQL root password
+      required: true
+      default: root
+      type: password
+    - variable: DATABASE_URL
+      label: Database URL
+      required: true
+      default: mysql2://root:root@db/lazylist_production
+      type: string
+    - variable: MEMCACHE_URL
+      label: memcached URL
+      required: true
+      default: memcached:11211
+      type: string
+    - variable: RAILS_SERVE_STATIC_FILES
+      label: Rails serve static files
+      required: false
+      default: true
+      type: boolean
+    - variable: RAILS_LOG_TO_STDOUT
+      label: Rails log to stdout
+      required: false
+      default: true
+      type: boolean
+db:
+  scale: 1
+web:
+  scale: 1
+memcached:
+  scale: 1
